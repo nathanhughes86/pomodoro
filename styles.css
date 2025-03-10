@@ -1,0 +1,349 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Elza", sans-serif;
+}
+
+:root {
+    --primary-color: #3b82f6; /* Ali's signature blue */
+    --primary-hover: #2563eb;
+    --secondary-color: #f1f5f9; /* Light gray for secondary buttons */
+    --secondary-hover: #e2e8f0;
+    --text-color: #0f172a; /* Darker text for headings */
+    --body-text: #334155; /* Slightly lighter for body text */
+    --light-text: #64748b; /* For secondary text */
+    --background: #ffffff; /* Clean white background */
+    --card-bg: #f8fafc; /* Light blue-gray for container background */
+    --border-color: #e2e8f0;
+    --success-color: #10b981; /* Green for focus time */
+    --break-color: #f59e0b; /* Amber/yellow for break time */
+    --long-break-color: #8b5cf6; /* Purple for long break */
+    --section-bg: #ffffff; /* White for settings section */
+}
+
+body {
+    background-color: var(--background);
+    color: var(--body-text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    line-height: 1.6;
+    font-weight: 400;
+    letter-spacing: -0.011em;
+    font-family: "Elza", sans-serif;
+}
+
+.container {
+    background-color: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03), 0 4px 10px rgba(0, 0, 0, 0.02);
+    padding: 48px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Wave background - using Ali Abdaal's actual wave image */
+.wave-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.wave-bg::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 200px; /* Adjust height as needed */
+    background-image: url('https://aliabdaal.com/wp-content/uploads/2024/09/wave.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% auto;
+    z-index: 0;
+    opacity: 0.2; /* Reduced opacity to ensure content is readable */
+}
+
+/* Double underline styling for headings - matching Ali Abdaal's style */
+.has-double-underline {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+.has-double-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.1em;
+    height: 0.2em;
+    width: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,40 Q30,20 50,40 T100,40" stroke="%233b82f6" stroke-width="6" fill="none" vector-effect="non-scaling-stroke"/><path d="M0,60 Q30,40 50,60 T100,60" stroke="%233b82f6" stroke-width="6" fill="none" vector-effect="non-scaling-stroke"/></svg>');
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+h1 {
+    margin-bottom: 36px;
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 2.5rem;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    font-family: "Elza", sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+h2 {
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 24px;
+    text-align: left;
+    letter-spacing: -0.015em;
+    font-family: "Elza", sans-serif;
+}
+
+.timer-container {
+    margin: 48px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.timer {
+    font-size: 7rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 16px;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    font-family: "Elza", sans-serif;
+}
+
+.timer-label {
+    font-size: 1.25rem;
+    color: var(--light-text);
+    margin-bottom: 32px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    font-family: "Elza", sans-serif;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    letter-spacing: -0.01em;
+    font-family: "Elza", sans-serif;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 2px 5px rgba(59, 130, 246, 0.3);
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.35);
+}
+
+.secondary-btn:hover {
+    background-color: var(--secondary-hover);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.settings {
+    background-color: var(--section-bg);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 36px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    z-index: 1;
+}
+
+.setting {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.setting:last-child {
+    margin-bottom: 0;
+}
+
+.setting label {
+    font-size: 1rem;
+    color: var(--body-text);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    font-family: "Elza", sans-serif;
+}
+
+.setting input {
+    width: 90px;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--card-bg);
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-family: "Elza", sans-serif;
+}
+
+.setting input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.session-counter {
+    font-size: 1rem;
+    color: var(--light-text);
+    margin-top: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    position: relative;
+    z-index: 1;
+    font-family: "Elza", sans-serif;
+}
+
+.footer {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+    color: var(--light-text);
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+    position: relative;
+    z-index: 1;
+    font-family: "Elza", sans-serif;
+}
+
+/* Mode-specific styles for timer and label */
+body.focus-mode .timer {
+    color: var(--success-color); /* Green for focus time */
+    text-shadow: 0 2px 10px rgba(16, 185, 129, 0.15);
+}
+
+body.focus-mode .timer-label {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+body.break-mode .timer {
+    color: var(--break-color); /* Yellow/amber for break time */
+    text-shadow: 0 2px 10px rgba(245, 158, 11, 0.15);
+}
+
+body.break-mode .timer-label {
+    color: var(--break-color);
+    font-weight: 600;
+}
+
+body.long-break-mode .timer {
+    color: var(--long-break-color); /* Purple for long break */
+    text-shadow: 0 2px 10px rgba(139, 92, 246, 0.15);
+}
+
+body.long-break-mode .timer-label {
+    color: var(--long-break-color);
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 32px 24px;
+        border-radius: 20px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 28px;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    
+    .timer {
+        font-size: 5rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 16px 24px;
+    }
+    
+    .setting {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .setting input {
+        width: 100%;
+    }
+} 
