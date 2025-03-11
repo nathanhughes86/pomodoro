@@ -37,7 +37,7 @@ body {
 }
 
 .container {
-    background-color: var(--card-bg);
+    background-color: transparent; /* Make container transparent to show the wave background */
     border-radius: 24px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03), 0 4px 10px rgba(0, 0, 0, 0.02);
     padding: 48px;
@@ -53,6 +53,7 @@ body {
 .wave-bg {
     position: relative;
     overflow: hidden;
+    background-color: #f9f7f4; /* Light beige background color from the image */
 }
 
 .wave-bg::before {
@@ -61,13 +62,13 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 200px; /* Adjust height as needed */
-    background-image: url('https://aliabdaal.com/wp-content/uploads/2024/09/wave.png');
+    top: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none"><path fill="%23f1ede9" fill-opacity="0.7" d="M0,192L48,186.7C96,181,192,171,288,181.3C384,192,480,224,576,229.3C672,235,768,213,864,186.7C960,160,1056,128,1152,117.3C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
     background-repeat: no-repeat;
     background-position: center bottom;
-    background-size: 100% auto;
+    background-size: 100% 100%;
     z-index: 0;
-    opacity: 0.2; /* Reduced opacity to ensure content is readable */
+    opacity: 0.8;
 }
 
 /* Double underline styling for headings - matching Ali Abdaal's style */
@@ -81,14 +82,14 @@ body {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -0.1em;
-    height: 0.2em;
+    bottom: -0.15em;
+    height: 0.35em;
     width: 100%;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,40 Q30,20 50,40 T100,40" stroke="%233b82f6" stroke-width="6" fill="none" vector-effect="non-scaling-stroke"/><path d="M0,60 Q30,40 50,60 T100,60" stroke="%233b82f6" stroke-width="6" fill="none" vector-effect="non-scaling-stroke"/></svg>');
-    background-repeat: repeat-x;
-    background-size: auto 100%;
+    background-color: transparent;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M5,10 C35,2 65,18 95,10" stroke="%230ea5e9" stroke-width="3" fill="none" vector-effect="non-scaling-stroke"/></svg>');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     z-index: -1;
-    opacity: 0.7;
 }
 
 h1 {
