@@ -17,7 +17,7 @@
     --card-bg: #f8fafc; /* Light blue-gray for container background */
     --border-color: #e2e8f0;
     --success-color: #10b981; /* Green for focus time */
-    --break-color: #f59e0b; /* Amber/yellow for break time */
+    --break-color: #fdd46b; /* Amber/yellow for break time */
     --long-break-color: #8b5cf6; /* Purple for long break */
     --section-bg: #ffffff; /* White for settings section */
 }
@@ -289,7 +289,7 @@ body.focus-mode .timer-label {
 
 body.break-mode .timer {
     color: var(--break-color); /* Yellow/amber for break time */
-    text-shadow: 0 2px 10px rgba(245, 158, 11, 0.15);
+    text-shadow: 0 2px 10px rgba(253, 212, 107, 0.15);
 }
 
 body.break-mode .timer-label {
